@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "setup": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Setup steps for the project"
+    },
+    "dependencies": {
+      "type": "string",
+      "description": "Command to install dependencies"
+    },
+    "build": {
+      "type": "object",
+      "properties": {
+        "android": {
+          "type": "string"
+        },
+        "ios": {
+          "type": "string"
+        },
+        "windows": {
+          "type": "string"
+        }
+      }
+    },
+    "run": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audit": {
+      "type": "string"
+    },
+    "rollback": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": ["setup", "dependencies", "build", "run", "audit", "rollback"]
+}

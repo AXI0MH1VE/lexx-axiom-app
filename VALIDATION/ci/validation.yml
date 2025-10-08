@@ -1,0 +1,58 @@
+name: Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install jsonschema pyyaml
+
+    - name: Validate Schemas
+      run: |
+        python -c "
+        import json, jsonschema
+        with open('STRATEGY.md') as f: strategy = f.read()
+        with open('VALIDATION/schemas/strategy.schema.json') as f: schema = json.load(f)
+        # Simple check for presence
+        if 'Goals:' in strategy and 'Risks:' in strategy and 'Roadmap:' in strategy:
+            print('STRATEGY.md structure valid')
+        else:
+            exit(1)
+        "
+
+    - name: Check Integrity Attestation
+      run: |
+        python - << 'PY'
+        import hashlib, pathlib
+        r = pathlib.Path('.')
+        S = (r/'STRATEGY.md').read_text(encoding='utf-8')
+        P = (r/'PRINCIPLES.md').read_text(encoding='utf-8')
+        D = (r/'DEPLOYMENT.md').read_text(encoding='utf-8')
+        computed = hashlib.sha256((S+P+D).encode('utf-8')).hexdigest()
+        with open('VALIDATION/integrity_attestation.txt') as f:
+            stored = f.readline().strip()
+        if computed == stored:
+            print('Integrity verified')
+        else:
+            print(f'Integrity failed: {computed} != {stored}')
+            exit(1)
+        PY
+
+    - name: Run Artifact Test
+      run: |
+        python ARTIFACTS/main.py --verify

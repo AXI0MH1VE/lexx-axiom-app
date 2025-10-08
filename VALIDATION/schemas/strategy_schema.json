@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "goals": {
+      "type": "string",
+      "description": "Description of the goals for LexX Axiom v1.4"
+    },
+    "risks": {
+      "type": "string",
+      "description": "Identified risks and mitigations"
+    },
+    "roadmap": {
+      "type": "string",
+      "description": "Future roadmap and next steps"
+    }
+  },
+  "required": ["goals", "risks", "roadmap"]
+}

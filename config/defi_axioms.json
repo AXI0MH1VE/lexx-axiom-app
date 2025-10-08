@@ -1,0 +1,16 @@
+{
+  "schema": {
+    "input": {
+      "type": "string",
+      "domain": "defi",
+      "constraints": ["non_empty", "printable"],
+      "allowed_terms": ["tx", "block", "liquidity", "yield", "staking", "wallet", "protocol", "token", "pair"],
+      "max_length": 1000
+    },
+    "output": {
+      "type": "string",
+      "provenance": ["hash", "timestamp", "signature", "source_type", "source_path", "domain"]
+    },
+    "file_types": ["txt", "pdf"]
+  }
+}

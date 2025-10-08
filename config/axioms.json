@@ -1,0 +1,14 @@
+{
+  "schema": {
+    "input": {
+      "type": "string",
+      "constraints": ["non_empty", "printable"],
+      "max_length": 1000
+    },
+    "output": {
+      "type": "string",
+      "provenance": ["hash", "timestamp", "signature", "source_type", "source_path"]
+    },
+    "file_types": ["txt", "pdf"]
+  }
+}

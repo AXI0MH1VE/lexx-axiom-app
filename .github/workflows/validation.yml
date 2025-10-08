@@ -1,0 +1,42 @@
+name: Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install -g ajv-cli
+
+    - name: Lint Markdown
+      run: |
+        find . -name "*.md" -exec markdownlint {} \;
+
+    - name: Validate Schemas
+      run: |
+        ajv validate -s VALIDATION/schemas/strategy_schema.json -d STRATEGY.md
+        ajv validate -s VALIDATION/schemas/principles_schema.json -d PRINCIPLES.md
+        ajv validate -s VALIDATION/schemas/deployment_schema.json -d DEPLOYMENT.md
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.24.0'
+
+    - name: Run Flutter Tests
+      run: |
+        flutter pub get
+        flutter test
