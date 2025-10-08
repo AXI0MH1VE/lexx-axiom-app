@@ -1,3 +1,5 @@
-•	Goals: LexX Axiom v1.4 delivers a cross-platform app (iOS, Android, Windows) with unmatched design: white-pink (#FF69B4, #FFFFFF0F) glassmorphic UI, holographic animations, surpassing Tesla’s Cybertruck aesthetic. Full chatbot parity: real-time chat, voice (STT/TTS), file upload (TXT/PDF), DeFi schema, auditable history. Sovereign: offline, user-signed axioms, no cloud. Outpaces Gemini/Grok via verifiable truth.
-•	Risks: Animation lag on low-end devices; mitigated by adaptive FPS (30/60/120). PDF parsing errors handled by robust chunking and fallback validation.
-•	Roadmap: Deploy v1.4 with elite design. Next: AR document previews or Web3 axiom minting for blockchain provenance.
+# Strategy
+
+- Goals: LexX Axiom v1.4 delivers a cross-platform app (iOS, Android, Windows) with unmatched design: white-pink (#FF69B4, #FFFFFF0F) glassmorphic UI, holographic animations, surpassing Tesla's Cybertruck aesthetic. Full chatbot parity: real-time chat, voice (STT/TTS), file upload (TXT/PDF), DeFi schema, auditable history. Sovereign: offline, user-signed axioms, no cloud. Outpaces Gemini/Grok via verifiable truth.
+- Risks: Animation lag on low-end devices; mitigated by adaptive FPS (30/60/120). PDF parsing errors handled by robust chunking and fallback validation.
+- Roadmap: Deploy v1.4 with elite design. Next: AR document previews or Web3 axiom minting for blockchain provenance.
