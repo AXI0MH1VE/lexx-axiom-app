@@ -27,9 +27,9 @@ jobs:
 
     - name: Validate Schemas
       run: |
-        ajv validate -s VALIDATION/schemas/strategy_schema.json -d STRATEGY.md
-        ajv validate -s VALIDATION/schemas/principles_schema.json -d PRINCIPLES.md
-        ajv validate -s VALIDATION/schemas/deployment_schema.json -d DEPLOYMENT.md
+                  ajv validate -s VALIDATION/schemas/strategy_schema.json -d VALIDATION/data/strategy.json
+                  ajv validate -s VALIDATION/schemas/principles_schema.json -d VALIDATION/data/principles.json
+                  ajv validate -s VALIDATION/schemas/deployment_schema.json -d VALIDATION/data/deployment.json
 
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
