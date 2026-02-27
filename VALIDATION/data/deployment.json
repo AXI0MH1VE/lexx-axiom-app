@@ -1,0 +1,13 @@
+{
+  "setup": [
+    "Install Flutter 3.24+: flutter upgrade.",
+    "Create project: flutter create lexx_axiom_app && cd lexx_axiom_app.",
+    "Replace files with above."
+  ],
+  "dependencies": "flutter pub get",
+  "build": {
+    "android": "flutter build apk --release",
+    "ios": "flutter build ios --release (Xcode, Apple Developer account required)",
+    "windows": "flutter build windows --release"
+  }
+}
